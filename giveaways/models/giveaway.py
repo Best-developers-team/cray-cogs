@@ -476,7 +476,7 @@ class Giveaway(GiveawayMeta):
 
         if msg:
             kwargs["embed"] = discord.Embed(
-                description=f"***Message***: {msg}", color=await self.get_embed_color()
+                description=f"**Message**: {msg}", color=await self.get_embed_color()
             )
 
         if any((kwargs["content"], kwargs["embed"])):
@@ -578,7 +578,7 @@ class Giveaway(GiveawayMeta):
             embed.description = (
                 f"This giveaway has ended.\nThere were 0 winners.\n**Host:** {host.mention}"
             )
-            embed.set_footer(text=f"{guild.name} - Winners: {winners}", icon_url=guild.icon_url)
+            embed.set_footer(text=f"Winners: {winners}")
             await gmsg.edit(embed=embed)
 
             await gmsg.reply(endmsg.format_map(formatdict))
@@ -590,7 +590,7 @@ class Giveaway(GiveawayMeta):
         embed: discord.Embed = gmsg.embeds[0]
         embed.color = discord.Color.red()
         embed.description = f"This giveaway has ended.\n**Winners:** {w}\n**Host:** {host.mention}"
-        embed.set_footer(text=f"{guild.name} - Winners: {winners}", icon_url=guild.icon_url)
+        embed.set_footer(text=f"Winners: {winners}")
         await gmsg.edit(embed=embed)
 
         await gmsg.reply(endmsg.format_map(formatdict))
@@ -666,7 +666,7 @@ class EndedGiveaway(GiveawayMeta):
 
         if len(entrants) == 0:
             await gmsg.reply(
-                f"There weren't enough entrants to determine a winner.\nClick on my replied message to jump to the giveaway."
+                f"There weren't enough entrants to determine a winner."
             )
             return
 
