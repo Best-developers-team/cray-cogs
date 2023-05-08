@@ -29,7 +29,7 @@ class GiveawayMeta:
         self.prize: str = kwargs.get("prize", "Giveaway prize")
         self.requirements: Optional[Requirements] = kwargs.get("requirements")
         self.flags: Optional[GiveawayFlags] = kwargs.get("flags")
-        self.emoji: str = kwargs.get("emoji", ":tada:")
+        self.emoji: str = kwargs.get("emoji", "<a:purplefire:1040249007731114064>")
         self.amount_of_winners: int = kwargs.get("amount_of_winners", 1)
         self._entrants: set[int] = set(kwargs.get("entrants", {}) or {})
         self._winners: List[int] = kwargs.get("winners") or []
